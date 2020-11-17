@@ -1,0 +1,15 @@
+######pdf To text file
+import pdfplumber
+page_data=""
+with pdfplumber.open('C:\\Users\\admin\\Downloads\\clsfn project\\req\\req\\2010 - split merge.pdf') as pdf:
+     page_content = pdf.pages
+     for page in page_content:
+         page_data=page_data+(page.extract_text())
+         #print(page_data)           
+         with open(r"C:\Users\admin\Downloads\filet.txt", 'w',encoding='utf-8') as f:
+            f.write(page_data)
+
+#open and read the file after the appending:
+f = open(r"C:\Users\admin\Downloads\filet.txt", "r",encoding='utf-8')
+print(f.read())
+f.close()
