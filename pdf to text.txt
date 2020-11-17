@@ -1,0 +1,32 @@
+import PyPDF2
+
+def getPDFContent(path):
+
+    content = ""
+
+    pdf = PyPDF2.PdfFileReader((path, "rb"))
+
+    number_of_pages = pdfReader.getNumPages()
+
+    print(number_of_pages ) # will give total number of pages in pdf
+
+#for loop to get number of pages and extract text from each page
+
+    file1=open('C:\\Users\\admin\\Downloads\\clsfn project\\req\\req\\shree.txt', 'a')
+
+    content=""                # define variable for using in loop.
+    for page_number in range(number_of_pages):
+    		page = pdfReader.getPage(page_number)
+        	f=open('C:\\Users\\admin\\Downloads\\clsfn project\\req\\req\\shree.txt', 'a')
+		content= pdf.getPage(i).extractText() + "\n"
+        	import string
+        	c=content.split()
+        	for a in c:
+            		f.write(" ")
+            		f.write(a)
+        	f.write('\n')
+        	f.close()
+
+    return content
+path='C:\\Users\\admin\\Downloads\\clsfn project\\req\\req\\2010 - split merge.pdf'
+print(getPDFContent(path))
